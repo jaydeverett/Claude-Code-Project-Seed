@@ -71,6 +71,16 @@ With one exception. Claude should tell you when its context is filling up, at ro
 
 If the project is under version control, the wrap ends by **pushing**, not just committing. Committing protects the work on this machine. Pushing is what actually protects it. It's worth a quick check for anything committed locally but never pushed — that pile grows silently.
 
+### The wrap reminder (optional)
+
+Everything above depends on a habit: you typing "wrap it up" before you close the window. That habit is the entire workflow, and it is also the single easiest thing to forget. Documentation can teach a habit but it cannot install one.
+
+Cairn ships a small script, `.cairn/hooks/wrap-reminder.sh`, that nudges Claude to offer a wrap-up at the two moments a session is most likely to be lost — when the conversation compacts, and once a session has run past a turn threshold. It talks to Claude rather than to you; Claude decides how to raise it and you decide whether to wrap. It never blocks anything and never wraps on its own.
+
+**It is off unless you turn it on.** The setup flow offers to install it, which writes `.claude/settings.local.json` — gitignored, so it stays on your machine. You can also ask Claude to add or remove it at any point, or change the threshold with `CAIRN_WRAP_AFTER_TURNS` (default 25).
+
+The reason it isn't pre-wired deserves saying plainly, because it applies well beyond cairn. Hooks are shell commands Claude Code runs automatically. A repository that ships hooks already switched on executes code on everyone who clones it, before they have looked at anything — which is why a committed `.claude/settings.json` full of hooks should be read with the same suspicion you'd give a strange install script. Cairn ships the script inert and asks first. If you ever clone a template that doesn't, read its hooks before you run it.
+
 ## Why this works
 
 The friction in long projects with AI is **context loss between sessions**. The AI cannot remember what you discussed yesterday. You can, but barely, and you definitely don't remember by next week.

@@ -181,7 +181,48 @@ Once confirmed, perform these actions:
 
 ---
 
-## Step 9 — (Optional) Start the first session
+## Step 9 — Offer the wrap reminder
+
+After the setup summary, make one offer. This is not a sixth question — it's a yes/no, and "no" is a perfectly good answer.
+
+> "One last thing, optional. The whole workflow depends on you typing 'wrap it up' before you close a session — that's the step that saves your work. It's also the easiest one to forget, and forgetting it loses the session.
+>
+> I can install a reminder that nudges me to offer a wrap-up when a session has run long or when the conversation gets full. It's a small script that already lives in this folder at `.cairn/hooks/wrap-reminder.sh` — you can read it, it's commented. It only talks to me, never blocks anything, and doesn't touch the network.
+>
+> Want it on? (You can add or remove it anytime.)"
+
+**If yes**, write `.claude/settings.local.json`. Merge with the existing file if there is one — do not overwrite settings the user already has:
+
+```json
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.cairn/hooks/wrap-reminder.sh\"" }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR/.cairn/hooks/wrap-reminder.sh\"" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Then tell them: "Done. It'll take effect next session. If it ever gets annoying, tell me to remove the wrap reminder and I'll delete it — or change how long it waits by setting `CAIRN_WRAP_AFTER_TURNS` (default is 25 turns)."
+
+**If no**, say "No problem — the reminder is off. You can ask me to turn it on later," and move on. Do not press.
+
+**Why the file is local and not committed:** `.claude/settings.local.json` is gitignored, so it stays on this machine and never ships to anyone who clones the project. This matters. Hooks are shell commands that run automatically, so a template that ships them pre-wired would execute code on every person who cloned it, before they had any chance to look at it. Cairn ships the script inert and asks first. If the user asks why, that's the honest answer — and it's the same reason they should be wary of any other repo that arrives with hooks already turned on.
+
+---
+
+## Step 10 — (Optional) Start the first session
 
 If the user wants to start immediately, transition smoothly into the first session for their starting topic. Begin by asking what they consider the most important foundational question for that topic. From here, the regular cairn session workflow takes over (now described in the newly-written CLAUDE.md).
 
