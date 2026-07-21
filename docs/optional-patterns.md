@@ -68,7 +68,30 @@ Workflow:
 - The file contains only **work since the last update** — not cumulative history.
 - The file highlights: decisions made, open questions, items needing the stakeholder's input, files modified, remaining work.
 
-Add a section to CLAUDE.md describing this workflow so Claude follows it consistently. Sample wording is in the Rematch project's CLAUDE.md, available as a reference.
+Add a section to CLAUDE.md describing this workflow so Claude follows it consistently. Sample wording to adapt:
+
+```markdown
+## Stakeholder Updates
+
+[NAME] is a [cofounder / client / manager] who is not in these sessions
+and reads `Cofounder_Update.md` to stay current.
+
+When the user says "update the stakeholder file," regenerate it:
+
+- Cover **only work since the last update.** Check the date at the top of
+  the existing file and read forward from there in the brainstorms.
+- Structure it as: what changed, what was decided, what needs [NAME]'s
+  input, what's still open.
+- Lead with anything that needs a response. Bury nothing.
+- Write for someone with full context on the project but zero context on
+  these sessions. No internal shorthand, no decision numbers without the
+  decision spelled out alongside.
+- Keep it scannable. If it runs past a page, it won't get read.
+- Stamp it with today's date at the top so the next update knows where to
+  start.
+```
+
+The load-bearing part is "only work since the last update." A sync file that restates the whole project every time stops being read within a few updates, which defeats the point of having one.
 
 ## Phased decision lists
 
@@ -122,7 +145,9 @@ project/
 └── templates/        # Reusable patterns
 ```
 
-The conselyea project (a job search system) uses this pattern. The trade-off: less stable ordering when discussing folders ("the targets folder" vs "folder 03"). For most projects, numbered is the better default. Semantic is the right call when (a) order genuinely doesn't matter and (b) the folder names are self-explanatory enough that numbers don't add anything.
+The example above is a job search system, where the folders are genuinely parallel — you work in whichever one the week calls for, and there is no sense in which `outreach` comes after `targets`.
+
+The trade-off is less stable ordering when discussing folders ("the targets folder" vs "folder 03"). For most projects, numbered is the better default. Semantic is the right call when (a) order genuinely doesn't matter and (b) the folder names are self-explanatory enough that numbers don't add anything.
 
 ## Multi-language or multi-domain projects
 
