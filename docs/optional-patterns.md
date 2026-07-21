@@ -18,6 +18,45 @@ When not to:
 - Decisions are mostly local to one topic
 - You don't reference past decisions often enough for the numbering to pay off
 
+## A build backlog
+
+The Brainstorm/Master pair holds two things well: how the thinking evolved, and what you currently believe. Neither holds a third thing — **what you have committed to doing, and whether it's done yet.**
+
+This gap is usually invisible until a project starts building. The symptom is a specific, recurring anxiety: *"I think things are getting dropped between sessions."* Usually they are. A decision written into `Master.md` is safe. But the checklist of what that decision implies — the six things to build, four of them finished — lives only in the session, and the session ends.
+
+**Pattern:** a `BACKLOG.md` at the project root. One line per committed item, with a status. The rule that makes it work is about timing, not format:
+
+> Every decision becomes a backlog line **the moment it's made**, in the same breath as "DECISION: ...". Not at wrap-up, not in a later cleanup pass.
+
+Two habits keep it honest:
+
+- **Reconcile against the work, not against other documents.** Check the backlog against the actual files, artifacts, or running thing. A status doc seeded from another status doc inherits every unverified claim in it, and the errors compound in both directions — things marked done that were never built, and things marked pending that shipped weeks ago.
+- **A description is not proof.** "Committed" and "works" are different claims, and a note saying an item is handled is not evidence that it is. When reconciling, look for the item's actual user-visible result.
+
+When to adopt:
+- The project has moved from deciding into making
+- You've caught yourself asking "did we ever finish that?" more than once
+- Decisions routinely imply multiple pieces of work rather than being self-contained
+
+When not to:
+- The project is still purely in a thinking phase — `Master.md` covers you
+- Work items are small enough that each session finishes what it starts
+
+## Incoming feedback files
+
+The stakeholder sync file below is outbound: what you send someone. This is the inbound counterpart, and it's the one people lose work to.
+
+When someone gives you a batch of feedback — a collaborator's notes, a tester's list of problems, a client's reactions — and you paste it into the conversation, it exists **only** in that conversation. Deciding to handle it next session silently destroys it. This is a real and easy mistake: the work feels captured because you can see it on screen.
+
+**Pattern:** paste it to a file first, before any discussion of it. `Feedback_2026_03_14.md`, or a running `Feedback.md`. Verbatim, uninterpreted.
+
+Then, for anything more than a handful of items, add a **disposition** to each one before starting work: doing now, doing later, not doing, needs a decision first. Writing every item down with a disposition before touching anything is what stops items from silently vanishing in the middle of a long list.
+
+Two things worth knowing:
+
+- Above roughly 20 items, do an explicit "anything not covered?" pass at the end, against the original list. "I think we got everything" is wrong more often than it's right, and the pass takes minutes.
+- A suggestion is not a specification. When someone proposes an exact fix or exact wording, it encodes an intent. Implement the intent — the literal version often breaks something the person suggesting it couldn't have known about.
+
 ## Stakeholder sync files
 
 If you regularly update a cofounder, manager, client, or community on the project, a dedicated sync file is worth its weight.

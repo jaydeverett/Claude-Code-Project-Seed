@@ -34,7 +34,24 @@ The second option is cleaner if the drift was substantive.
 
 ### Can I run two sessions in parallel? E.g., one in the foundation folder while another runs in the production folder?
 
-You can, but it's risky if both sessions might write to the same `Master.md` or overlapping files. Easier rule: one session at a time, focused on one topic. If two topics need work, run two sequential sessions, not two parallel ones.
+Yes, but only with a specific discipline, and the default answer is still one at a time.
+
+The failure mode is two sessions writing the same file and silently clobbering each other. What makes it safe is boring and non-negotiable:
+
+- **Split file ownership explicitly.** Before starting, tell each session which files it owns and which it must not touch. Name them.
+- **If a session needs a file it doesn't own, it stops and tells you** rather than reaching in. You pause the other session, let the change happen, resume.
+- **Shared files go last.** `Master.md`, `Process_Meta_Notes.md`, anything at the project root — whichever session wraps second updates those, after the first has finished.
+- **If you use git, give each session its own branch** and merge when both land.
+
+This works well when the two tracks are genuinely separate. It costs you more than it saves when they aren't. If two sessions keep needing each other's files, that's a sign it was one session all along.
+
+### How do I know work isn't getting dropped between sessions?
+
+If you're asking this, something probably is. It's the most common complaint on projects past the first month, and it usually has a specific cause: the *decisions* are safe in `Master.md`, but the *work those decisions imply* was only ever tracked in the session's head.
+
+The fix is a `BACKLOG.md` — see [optional-patterns.md](optional-patterns.md). The important part isn't the file, it's the timing: every decision becomes a backlog line at the moment it's made, not during cleanup later.
+
+Also worth knowing: when you check whether something got done, check the actual work, not another document that says it was done. Status documents copy each other's mistakes, in both directions — things marked finished that were never built, and things marked pending that shipped weeks ago.
 
 ### What if I don't have a "resume point" because I closed the last session without wrapping?
 

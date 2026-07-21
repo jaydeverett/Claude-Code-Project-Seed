@@ -79,6 +79,8 @@ Every session has a defined start and end.
 
 **During the session**, Claude flags decisions and open questions explicitly, and stays focused on the topic at hand. If the conversation drifts, Claude flags the drift rather than going along with it.
 
+Sessions come in two modes with different rhythms. **Design sessions** work through questions one at a time — you give a gut answer, it gets pressure-tested, it resolves, next question. **Build sessions** go plan, do one piece, verify it, commit, next piece. The trap in build sessions is finishing convinced that more works than actually works, so verification is part of the rhythm rather than something you get to afterward.
+
 **At the end**, you type "wrap it up." Claude produces five things:
 
 1. An updated `Brainstorm.md` with the new session appended.
@@ -147,6 +149,8 @@ Read it once before your first session if you want to see the shape of filled-in
 A few patterns work well for projects beyond the basics but are not part of the minimal template. See [docs/optional-patterns.md](docs/optional-patterns.md) for:
 
 - **Decision and question numbering** (`D1`, `D2`... and `OQ1`, `OQ2`...) for projects with enough accumulated decisions that they need to be referenced across sessions.
+- **A build backlog** for projects that have moved from deciding into making, where a decision implies work that outlives the session it was decided in.
+- **Incoming feedback files** for projects with collaborators or testers, where a pasted batch of notes would otherwise die with the conversation.
 - **Stakeholder sync files** for projects where you regularly update a cofounder, manager, or client.
 - **Phased decision lists** for projects that move through clearly distinct phases.
 - **Multi-discipline structures** for projects that span hardware, software, and go-to-market tracks.
