@@ -2,9 +2,7 @@
 
 **A project starter kit for building anything with Claude Code. No technical experience required.**
 
-Claude forgets everything between conversations. On a project that takes weeks, that means re-explaining yourself every session, decisions scattered across old chats, and by week three nobody can say what the current state is.
-
-This project fixes that. It is a folder of plain text files and a short ritual at the end of every session. Claude writes what you decided and where you left off into the files, and reads them back at the start of the next session. The work picks up where it stopped, every time.
+Claude starts every conversation from scratch. This gives it a memory for your project, so you can work on something for weeks and always pick up where you left off.
 
 You can use it for anything: a business, a podcast, a book, a renovation, a job search, an app.
 
