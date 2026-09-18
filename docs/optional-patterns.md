@@ -189,3 +189,56 @@ Example contents:
 ```
 
 Add this if the project has enough deliberate operational choices to warrant tracking. Skip it otherwise.
+
+## Raw sources next to the summary
+
+Some projects run on material that already exists: message threads, meeting transcripts, exported data, contracts, a folder of documents someone handed you. The Brainstorm/Master pair summarizes it. The summary is not the source of truth; the material is.
+
+**Pattern:** keep the raw material inside the topic folder it belongs to, verbatim, and keep it separate from the files Claude writes.
+
+```
+02_Tenants/
+├── Brainstorm.md
+├── Master.md
+├── Person A/
+│   ├── thread-export-2026-08-21.json
+│   └── 2026-09-02 pasted - follow-up.md
+└── Person B/
+    └── ...
+_source_intake/            (unsorted documents waiting to be filed)
+```
+
+Three rules make it work:
+
+- **Verbatim in, summary out.** Raw material is never edited. Anything pasted into a conversation is saved as-is first, with a date in the filename, before any analysis. For anything long, hand Claude the file rather than pasting it; pastes get silently truncated.
+- **Go back to the source when detail matters.** A date, an amount, a quote, who said what: Claude re-reads the raw file before answering, without being asked. The template `CLAUDE.md` has this as a start-of-session rule.
+- **Said is not true.** Threads record what people said, sometimes for effect. Claims in them, including your own, get checked against the Master before they become facts.
+
+An `_source_intake/` folder at the root is a useful staging area for documents that have not been filed yet. Triage it in a session: file what belongs, flag what doesn't, delete what is not actually part of this project.
+
+When to adopt:
+- The project ingests material from outside (threads, transcripts, exports, documents)
+- You have caught a summary being wrong about a detail the source had right
+
+## A cold-start brief, a quarantine, and a leak guard
+
+Three related patterns for high-stakes work: a deliverable someone will judge, or material that must not leak into it.
+
+**The cold-start brief.** When a piece of work is important enough that a fresh session getting it wrong would be costly, write one file the session must read completely before anything else. It carries: the file map and reading order; which file wins when two disagree; what is verified and what is not; the working agreement; the open decisions. Put a loud pointer to it at the top of `CLAUDE.md` for as long as the work is live. This replaces the resume point for that work; it is the resume point, written for the worst case.
+
+**The quarantine.** If a previous session produced material that is wrong, unapproved, or built on a false premise, do not delete it and do not leave it where a future session will read it as fact. Move it to a `_quarantine/` folder with a `README.md` saying what is in there and why it is not to be used. Deleting loses the evidence of what went wrong; leaving it in place guarantees the mistake repeats.
+
+**The leak guard.** When deliverables go to an outside party, work in a folder that contains only what is safe to draw from: public material, your own background, what the other party has told you. Anything confidential, and anything from a private conversation that does not also stand on public grounding, stays in a different project. If a session needs to note that such material exists, it writes "captured separately" and the location, not the content. The point is that nothing can enter the deliverable that should not, because it is not there to be found.
+
+When to adopt:
+- A deliverable will be judged by someone outside the project
+- A prior session got something badly wrong and its output is still on disk
+- The project touches material that must not appear in what you send out
+
+## Standing rules inherited from a previous project
+
+If this is not your first cairn project, the previous one taught you things. Some of them are in its `Process_Meta_Notes.md`; the ones that repeated are probably already in its `CLAUDE.md`.
+
+**Pattern:** open the new project's `Process_Meta_Notes.md` with a "Standing Rules" section, ported from the previous project, before any dated entries. Each rule is one line plus the incident that taught it. Reference it from `CLAUDE.md` ("read the standing rules before any significant multi-session work"). New sessions add dated entries below; they do not relitigate the standing rules.
+
+The template `CLAUDE.md` already carries the rules that survived more than one project. This pattern is for the ones that are specific to how *you* work, which no template can know.

@@ -57,7 +57,21 @@ Also worth knowing: when you check whether something got done, check the actual 
 
 Use the [`docs/starter-prompts.md`](starter-prompts.md) "Resuming after the first session (no resume point yet)" prompt. Tell Claude to read the most recent session in the relevant Brainstorm.md and pick up from there. You'll lose 5-10 minutes of re-orientation but the work is recoverable as long as the Brainstorm.md entry was written.
 
-If the previous session ended without a Brainstorm.md update — i.e., you really did just close the chat — that session's thinking is gone. This is the failure mode the wrap-up ritual exists to prevent. From now on, treat "wrap it up" as non-negotiable.
+If the previous session ended without a Brainstorm.md update — i.e., you really did just close the chat — the thinking is not in the files, but it is not gone either. Claude Code keeps a full transcript of every session on disk under `~/.claude/projects/`. Ask Claude to search those transcripts for the topic; it can recover decisions, and even whole reports from subagents, that never made it into a file. Budget most of a session for the recovery and the write-up. Then treat "wrap it up" as non-negotiable, because the recovery is the expensive path, not the normal one.
+
+### Which Claude model should I use?
+
+Use the most capable model you have access to for sessions where judgment is the work: deciding, pressure-testing, editing, anything where you would want a senior colleague rather than a fast one. For sessions that are mostly mechanical (implementing something already specified, running checks, porting), a faster model is usually fine and cheaper. Pick the model at the start of a session and keep it for the whole session; switching mid-way makes the new model re-read everything.
+
+Add a `Model:` line under each session header in `Brainstorm.md`. After a few weeks you will have your own evidence for which model did which work well, which beats anyone else's advice. See "Working with more capable models" in [workflow.md](workflow.md).
+
+### Claude keeps suggesting something I already said no to. What do I do?
+
+Say so plainly: "you've flagged that, I decided." The template `CLAUDE.md` has a rule for this (flag once, then respect the decision) and Claude should stop. If it keeps happening on a specific topic, add a line under "Project-Specific Notes" naming the decision, so it is in the file every session reads.
+
+### Claude rewrote a document I only wanted feedback on. How do I stop that?
+
+Tell Claude the document is yours. The template `CLAUDE.md` splits work into Claude-owned (Claude edits it directly) and user-owned (Claude prescribes from→to edits, you apply them). Anything that leaves the project under your name defaults to user-owned. If Claude applied edits anyway, ask for the change as a list of from→to suggestions and revert the file.
 
 ### How long should a session be?
 

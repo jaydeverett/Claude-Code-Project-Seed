@@ -36,4 +36,9 @@ Categories:
 - **Friction Points** — something that wasted time, broke flow, or quietly degraded the work. Worth fixing or working around.
 - **Product Insights** — lessons that would help someone else using cairn for a different project. These are the entries worth sharing externally if you want to contribute back to the template.
 
+Two things this file is not:
+
+- **It is not where rules live.** Claude reads `CLAUDE.md` every session; it reads this file only when pointed at it. When a lesson comes up for the second time, promote it: add a dated rule to `CLAUDE.md` with the incident that taught it, and note the promotion here. The meta notes are the evidence trail; `CLAUDE.md` is the law.
+- **It is not your first project's notes.** If you have run cairn before, the rules that survived that project belong at the top of this file as a "Standing Rules" section, before any dated entries. See "Standing rules inherited from a previous project" in `docs/optional-patterns.md`.
+
 If you want to contribute interesting meta notes back to the cairn template, open a GitHub Issue or PR on the cairn repo and paste the entry. Useful patterns get folded into the README over time. **Share processes, never content** — keep your project's actual decisions out of the contribution; only share the workflow lesson.
