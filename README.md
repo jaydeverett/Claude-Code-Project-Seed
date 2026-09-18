@@ -13,17 +13,13 @@ You can use it for anything: a business, a podcast, a book, a renovation, a job 
 
 ## Getting started
 
-**Never done anything technical?** Open [claude.ai](https://claude.ai) and paste this:
+Open [claude.ai](https://claude.ai) and paste this:
 
 > I want to use this for a project but I haven't done anything technical before. Can you help me set it up?
 >
 > https://github.com/jaydeverett/Claude-Code-Project-Seed
 
-Claude will walk you through everything, one step at a time, and tell you when you're ready to begin.
-
-**Already have Claude Code?** Get this folder onto your computer, rename it to your project's name, open Claude Code in it, and type anything.
-
-Either way, the first thing Claude does is ask you five questions about your project. Five minutes later the folder is set up for you and you can start working.
+Claude will walk you through everything, one step at a time, and tell you when you're ready to begin. Then it asks you five questions about your project, and five minutes later you can start working.
 
 ## Your data
 
