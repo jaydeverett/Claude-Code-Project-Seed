@@ -15,7 +15,7 @@ You can use it for anything: a business, a podcast, a book, a renovation, a job 
 
 Open [claude.ai](https://claude.ai) and paste this:
 
-> I want to use this for a project but I haven't done anything technical before. Can you help me set it up?
+> I want to use this for a project. Can you help me set it up?
 >
 > https://github.com/jaydeverett/Claude-Code-Project-Seed
 
